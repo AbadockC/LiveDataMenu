@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/primerPlat">
+
+    <fragment
+        android:id="@+id/primerPlat"
+        android:name="com.abadock.menulivedata.primerPlat"
+        android:label="fragment_primer_plat"
+        tools:layout="@layout/fragment_primer_plat" >
+        <action
+            android:id="@+id/action_primerPlat_to_segonBegudes"
+            app:destination="@id/segonBegudes"
+            app:popUpTo="@id/primerPlat" />
+    </fragment>
+    <fragment
+        android:id="@+id/segonBegudes"
+        android:name="com.abadock.menulivedata.segonBegudes"
+        android:label="fragment_segon_begudes"
+        tools:layout="@layout/fragment_segon_begudes" >
+        <action
+            android:id="@+id/action_segonBegudes_to_finalPreu"
+            app:destination="@id/finalPreu"
+            app:popUpTo="@id/primerPlat" />
+    </fragment>
+    <fragment
+        android:id="@+id/finalPreu"
+        android:name="com.abadock.menulivedata.finalPreu"
+        android:label="fragment_final_preu"
+        tools:layout="@layout/fragment_final_preu" />
+</navigation>
