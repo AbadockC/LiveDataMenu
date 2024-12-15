@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.abadock.menulivedata"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.abadock.menulivedata"

@@ -5,55 +5,47 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.abadock.menulivedata.ViewModel.MenuViewModel
+import com.abadock.menulivedata.databinding.FragmentFinalPreuBinding
+import com.abadock.menulivedata.databinding.FragmentSegonBegudesBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [finalPreu.newInstance] factory method to
- * create an instance of this fragment.
- */
 class finalPreu : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val viewModel: MenuViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_final_preu, container, false)
-    }
+        val binding = FragmentFinalPreuBinding.inflate(inflater)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment finalPreu.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            finalPreu().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+
+        viewModel.menuClient.observe(viewLifecycleOwner) { menu ->
+            binding.QuantitatPrimerPlat.text = "${menu.cantPrimerPlat}"
+            binding.QuantitatBegudes.text = "${menu.cantBegudes}"
+
+            if (menu.cantPrimerPlat > 10){
+                binding.PreuPrimerPlat.text = "${menu.PreuPrimerPlat * menu.cantPrimerPlat - (menu.PreuPrimerPlat * menu.cantPrimerPlat)/100 * 20} €"
             }
+            else{
+                binding.PreuPrimerPlat.text = "${menu.PreuPrimerPlat * menu.cantPrimerPlat} €"
+            }
+
+            if (menu.cantBegudes > 10){
+                binding.PreuBegudes.text = "${menu.PreuBegudes * menu.cantBegudes - (menu.PreuBegudes * menu.cantBegudes)/100 * 20} €"
+            }
+            else{
+                binding.PreuBegudes.text = "${menu.PreuBegudes * menu.cantBegudes} €"
+            }
+
+            binding.PreuTotal.text =
+                "${menu.PreuBegudes * menu.cantBegudes + menu.PreuPrimerPlat * menu.cantPrimerPlat} €"
+        }
+
+
+        return binding.root
+
     }
 }
