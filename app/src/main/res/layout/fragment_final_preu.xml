@@ -46,6 +46,8 @@
                 app:layout_constraintTop_toBottomOf="@id/TextTitle" />
 
             <!-- Preu -->
+
+            <!-- Primer plat -->
             <TextView
                 android:id="@+id/TextPreu"
                 android:layout_width="wrap_content"
@@ -53,10 +55,11 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="92dp"
                 android:text="Preu:"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.041"
                 app:layout_constraintStart_toEndOf="@id/TextQuantitat"
                 app:layout_constraintTop_toBottomOf="@id/TextTitle" />
 
-            <!-- Primer plat -->
             <TextView
                 android:id="@+id/TextPrimerPlat"
                 android:layout_width="wrap_content"
@@ -68,6 +71,8 @@
                 app:layout_constraintTop_toBottomOf="@id/TextDescripcioProducte" />
 
             <!-- Preu Primer Plat -->
+
+            <!-- Begudes -->
             <TextView
                 android:id="@+id/PreuPrimerPlat"
                 android:layout_width="wrap_content"
@@ -75,10 +80,11 @@
                 android:layout_marginStart="36dp"
                 android:layout_marginTop="44dp"
                 android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@id/TextQuantitat"
                 app:layout_constraintTop_toBottomOf="@id/TextPreu" />
 
-            <!-- Begudes -->
             <TextView
                 android:id="@+id/TextBegudes"
                 android:layout_width="wrap_content"
@@ -90,15 +96,6 @@
                 app:layout_constraintTop_toBottomOf="@id/TextPrimerPlat" />
 
             <!-- Preu Begudes -->
-            <TextView
-                android:id="@+id/PreuBegudes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="64dp"
-                android:text="TextView"
-                app:layout_constraintStart_toEndOf="@id/TextQuantitat"
-                app:layout_constraintTop_toBottomOf="@id/PreuPrimerPlat" />
 
             <!-- Euro 1 -->
 
@@ -107,6 +104,18 @@
             <!-- Preu Total -->
 
             <!-- Euro 2 -->
+
+            <TextView
+                android:id="@+id/PreuBegudes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="64dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/TextQuantitat"
+                app:layout_constraintTop_toBottomOf="@id/PreuPrimerPlat" />
 
             <TextView
                 android:id="@+id/TextTotal"
@@ -125,6 +134,8 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="208dp"
                 android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.042"
                 app:layout_constraintStart_toEndOf="@+id/TextTotal"
                 app:layout_constraintTop_toBottomOf="@+id/TextBegudes" />
 
@@ -147,6 +158,18 @@
                 android:text="TextView"
                 app:layout_constraintStart_toEndOf="@+id/TextPrimerPlat"
                 app:layout_constraintTop_toBottomOf="@+id/QuantitatPrimerPlat" />
+
+            <Button
+                android:id="@+id/updateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="196dp"
+                android:text="Actualitzar"
+                app:layout_constraintEnd_toStartOf="@+id/TextTotal"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TextBegudes" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>

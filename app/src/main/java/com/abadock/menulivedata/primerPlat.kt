@@ -22,9 +22,9 @@ class primerPlat: Fragment() {
         val binding = FragmentPrimerPlatBinding.inflate(inflater)
 
         binding.buttonPrimerPlat.setOnClickListener {
-            val cantPrimerPlat = binding.editTextNumber.text
+            val cantPrimerPlat = binding.editTextNumber.text.toString().toInt()
 
-            viewModel.addCantPrimerPlat(cantPrimerPlat.toString().toInt())
+            viewModel.addCantPrimerPlat("Patates", 3, cantPrimerPlat)
             findNavController().navigate(R.id.action_primerPlat_to_segonBegudes, null)
         }
 

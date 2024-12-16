@@ -22,9 +22,9 @@ class segonBegudes : Fragment() {
         val binding = FragmentSegonBegudesBinding.inflate(inflater)
 
         binding.buttonBegudes.setOnClickListener {
-            val cantBegudes = binding.editTextNumber.text
+            val cantBegudes = binding.editTextNumber.text.toString().toInt()
 
-            viewModel.addCantBegudes(cantBegudes.toString().toInt())
+            viewModel.addCantBegudes("Fanta", 4, cantBegudes)
             findNavController().navigate(R.id.action_segonBegudes_to_finalPreu, null)
         }
 
